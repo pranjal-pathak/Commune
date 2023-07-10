@@ -20,7 +20,14 @@ body {
 
 .navbar .links {
   text-align: center;
-  margin-right: 50px;
+  margin-right: 2% ;
+  
+}
+
+.links{
+  display: flex;
+  text-align: center;
+
 }
 
 .links a {
@@ -28,14 +35,14 @@ body {
   text-decoration: none;
   /* border-bottom: 3px solid white; */
   padding-bottom: 2px;
-  margin: 10px;
+  margin: 15px auto;
 }
 
 .navbar .user {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 50px;
+  margin-right:  50px auto;
 }
 
 .user p {
@@ -49,8 +56,10 @@ body {
   border-radius: 50%;
 }
 
-.btn {
+.navbar .btn {
+  
   margin-left: 10px;
+  margin-right: 10px;
   color: rgb(97, 4, 184);
 }
 
