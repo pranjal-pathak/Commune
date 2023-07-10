@@ -16,9 +16,9 @@ export const Navbar =()=>
     return(
         <div className="navbar">
             <div className="links">
-            <Link to = "/">Home</Link>
+            <button><Link to = "/">Home</Link></button>
             {!user ? 
-            <Link to ="/login">Login</Link> :  <Link to ="/createPost">Create Post</Link>
+            <button><Link to ="/login">Login</Link></button> :  <button><Link to ="/createPost">Create Post</Link></button>
             }
             </div>
 
