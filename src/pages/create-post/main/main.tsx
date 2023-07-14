@@ -1,4 +1,4 @@
-import {getDocs,collection} from "firebase/firestore";
+import {getDocs,collection, deleteDoc,doc} from "firebase/firestore";
 // getdocs different from getdoc
 import {db} from '../../../config/firebase';
 import { useState,useEffect} from "react";
@@ -6,6 +6,7 @@ import { Post } from "./post";
 import {auth} from "../../../config/firebase"
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { log } from "console";
 
 export interface Post{
     id: string;
@@ -13,7 +14,9 @@ export interface Post{
     title: string;
     username:string;
     description:string; 
-}
+      
+    }
+
 
 export const Main = ()=>{
 
@@ -41,10 +44,28 @@ export const Main = ()=>{
        },[])
     //    we add an empty array in useEffect so it will only rerender when the component is mounted
 
+    const deletePost= async(post:Post)=>{
+        try
+        {
+        const id = post.id;
+        await deleteDoc(doc(db,'posts',id));
+
+        setPostsList((prev)=>prev && prev?.filter((post)=>post.id!=id))
+
+        }
+        catch(err)
+        {
+            console.log(err);
+            
+        }
+    }
+
+
+
     return(
         
         <div>{postsList?.map((post)=> (
-        <Post post={post} />
+        <Post post={post} deletePost={deletePost}  />
         ) 
         )}
         {!user && <div><h2>Please login to continue</h2>

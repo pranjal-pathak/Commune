@@ -3,12 +3,15 @@ import { auth, db } from "../../../config/firebase";
 import { Post as IPost } from "./main";
 // post is changes to IPOST to avoid same name in the main and post file
 import { useAuthState } from "react-firebase-hooks/auth";
-import { log } from "console";
+
 import { useEffect, useState } from "react";
+import {FaRegTrashAlt} from 'react-icons/fa';
+
 // post is changes to IPOST to avoid same name 
 
 interface Props{
     post:IPost;
+    deletePost :(post:IPost)=>void; 
 }
 
 interface Like{
@@ -18,6 +21,7 @@ interface Like{
 
 export const Post = (props: Props)=>{
     const { post } = props;
+
 
     const [user] = useAuthState(auth);
 
@@ -80,6 +84,11 @@ export const Post = (props: Props)=>{
     useEffect(()=>{
         getLikes();
     },[]);
+
+    
+  
+    
+
    
     return(
         <div>
@@ -93,6 +102,7 @@ export const Post = (props: Props)=>{
                 <p>@{post.username}</p>
                 <button onClick={hasUserLiked? removeLike : addLike} >{hasUserLiked ? <>&#128078;</> : <>&#128077;</>}</button>
                 {likes && <p>Likes:{likes.length} </p>}
+                {user?.uid==post.userId&&<button style={{color:'red'}} onClick={()=>props.deletePost(post)}> {<FaRegTrashAlt />} Delete Post</button>}
             </div>
         </div>
     );
