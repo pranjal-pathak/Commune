@@ -10,6 +10,30 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Commune - A Simple Social Networking App
+
+Commune is a basic social networking application that allows users to sign up, create posts, like, comment, and delete their own content. Built as a learning project, this app helped me understand the fundamentals of **React, TypeScript, and Firebase**.
+
+## 🚀 Features
+
+- 🔐 **User Authentication** – Sign up and log in using Firebase Authentication.
+- 📝 **CRUD Operations** – Create, read, update, and delete posts.
+- ❤️ **Interactivity** – Like and comment on posts.
+- 🔄 **Real-time Database** – Uses Firebase Firestore to store and manage user data and posts.
+
+## 🛠 Tech Stack
+
+- **Frontend:** React, TypeScript, HTML, CSS
+- **Backend & Database:** Firebase Authentication, Firestore
+
+## 📦 Installation & Setup
+
+To run this project locally, follow these steps:
+
+1. **Clone the repository**
+   ```sh
+   git clone https://github.com/your-username/commune.git
+   cd commune
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
